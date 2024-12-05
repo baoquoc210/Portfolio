@@ -129,6 +129,7 @@ nav button:hover,
     font-size: 20px;
     margin-bottom: 24px;
     text-align: justify;
+    padding: 2px;
 }
 .hero .left-section .top .buttons{
     display: flex;
