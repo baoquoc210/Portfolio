@@ -63,13 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
     exploreButton.addEventListener('click', function() {  
         const cvFile = this.getAttribute('data-file');  
         
-        // Trigger download  
+      
         const link = document.createElement('a');  
-        link.href = cvFile; // Set the href to the CV file  
-        link.download = 'CV.pdf'; // Set the default filename for download  
-        document.body.appendChild(link); // Append to the body  
-        link.click(); // Programmatically click the link to trigger the download  
-        document.body.removeChild(link); // Remove the link after downloading  
+        link.href = cvFile; 
+        link.download = 'CV.pdf'; 
+        document.body.appendChild(link);  
+        link.click(); 
+        document.body.removeChild(link); 
     });  
 
    
