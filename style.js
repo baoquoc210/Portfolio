@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const targetId = this.getAttribute('href');  
             const targetElement = document.querySelector(targetId);   
-            smoothScroll(targetElement, 800); 
+            smoothScroll(targetElement, 1300); 
         });  
     });  
     function smoothScroll(target, duration) {  
