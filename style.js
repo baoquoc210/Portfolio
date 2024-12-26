@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Button to hire me  
     const hireMeButton = document.getElementById('hireMeButton');  
     hireMeButton.addEventListener('click', function() {  
-        window.open('https://www.linkedin.com/in/hu%E1%BB%B1nh-qu%E1%BB%91c-b%E1%BA%A3o-96308624b/', '_blank'); // Opens in a new tab  
+        window.open('https://www.linkedin.com/in/hu%E1%BB%B3nh-qu%E1%BB%91c-b%E1%BA%A3o-0328883425ha/', '_blank'); // Opens in a new tab  
     });  
 
     // Button to GitHub  
