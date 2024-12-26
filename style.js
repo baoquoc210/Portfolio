@@ -7,13 +7,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const targetId = this.getAttribute('href');  
             const targetElement = document.querySelector(targetId);   
-            targetElement.scrollIntoView({  
-                behavior: 'smooth',  
-                block: 'start'  
-            });  
+            smoothScroll(targetElement, 800); 
         });  
     });  
-
+    function smoothScroll(target, duration) {  
+        const start = window.scrollY; // Current scroll position  
+        const end = target.getBoundingClientRect().top + start; // Target scroll position  
+        const distance = end - start; // Distance to scroll  
+        let startTime = null;  
+    
+        function animation(currentTime) {  
+            if (startTime === null) startTime = currentTime;  
+            const timeElapsed = currentTime - startTime;  
+            const progress = Math.min(timeElapsed / duration, 1); // Calculate progress  
+            const ease = easeInOutQuad(progress); // Apply easing function  
+    
+            window.scrollTo(0, start + distance * ease); // Scroll to the calculated position  
+    
+            if (progress < 1) {  
+                requestAnimationFrame(animation); // Continue the animation  
+            }  
+        }  
+    
+        requestAnimationFrame(animation); // Start the animation  
+    
+        // Easing function for smooth effect  
+        function easeInOutQuad(t) {  
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // Quadratic easing  
+        }  
+    }  
     // Button to hire me  
     const hireMeButton = document.getElementById('hireMeButton');  
     hireMeButton.addEventListener('click', function() {  
