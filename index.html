@@ -13,13 +13,13 @@
 
     <nav>
         <div class="logo">
-            <img src="Picture/logo.jpg">
-            <a href="#">FINTECH</a>
+            <img src="Picture/logo.jpg" alt="Logo">
+            <a href="#" id="fintechLogo">FINTECH</a>
         </div>
         <div class="nav-links">
             <a href="https://github.com/baoquoc210" target="_blank">Projects</a>
             <a href="https://www.instagram.com/hh.hqb/" target="_blank">Instagram</a>
-            <a href="#hero">Main</a>
+            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
             <a href="#about">About</a>
         </div>
@@ -37,8 +37,8 @@
                 </p>
 
                 <div class="buttons">
-                    <button class="doc">Hire Me Now <i class="ri-arrow-right-line"></i></button>
-                    <button class="git"><i class="ri-github-fill"></i>My Github</button>
+                    <button class="doc" id="hireMeButton">Hire Me Now <i class="ri-arrow-right-line"></i></button>
+                    <button class="git" id="githubButton"><i class="ri-github-fill"></i>My Github</button>
                 </div>
             </div>
             <div class="bottom">
@@ -56,7 +56,7 @@
 
     </div>
 
-    <div class="about">
+    <div class="about" id="about">
         <p>About My Skills</p>
         <h2>I have engaged in the development of generative artificial intelligence.</h2>
         <div class="items">
@@ -85,39 +85,47 @@
         </div>
     </div>
 
-    <div class="projects">
+    <div class="projects" id ="projects">
         <div class="inner">
             <p class="debug"><i class="ri-command-line"></i> Troubleshoot & Debug</p>
             <h2>Projects Showcase</h2>
             <p class="info">Welcome to my portfolio! Here, you'll find some of my notable projects that highlight my expertise in designing and developing innovative artificial intelligence solutions.</p>
-            <button>Explore my projects <i class="ri-arrow-right-line"></i></button>
+            <button id="exploreButton" data-file="Picture/CV.pdf">Explore my projects <i class="ri-arrow-right-line"></i></button>  
 
             <div class="items">
-                <div class="item">
+                <div class="item" data-project="Real Object Detection">
                     <i class="ri-brain-line"></i>
-                    <a href="#">Real Object Detection</a>
+                    <a href="#" class="project-link">Real Object Detection</a>
                     <p>Create an application that uses models like YOLO or SSD to detect objects in real-time video streams.</p>
                 </div>
-                <div class="item">
+                <div class="item" data-project="Image Classification">
                     <i class="ri-code-box-line"></i>
-                    <a href="#">Image Classification</a>
+                    <a href="#" class="project-link">Image Classification</a>
                     <p>Develop a model that classifies audio clips into categories (e.g., different types of music genres,..).</p>
                 </div>
-                <div class="item">
+                <div class="item" data-project="Audio Classification">
                     <i class="ri-sparkling-fill"></i>
-                    <a href="#">Audio Classification</a>
+                    <a href="#" class="project-link">Audio Classification</a>
                     <p>Created a social media application with real-time updates and user interactions.</p>
                 </div>
-                <div class="item">
+                <div class="item" data-project="Chatbot">
                     <i class="ri-code-s-fill"></i>
-                    <a href="#">Chatbot</a>
+                    <a href="#" class="project-link">Chatbot</a>
                     <p>Develop a chatbot using NLP techniques that can answer FAQs for a specific business or service.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="contact">
+    <div id="projectModal" class="modal" style="display:none;">  
+        <div class="modal-content">  
+            <span class="close">&times;</span>  
+            <h2 id="modalTitle"></h2>  
+            <p id="modalDescription"></p>  
+        </div>  
+    </div>
+
+    <div class="contact" id="contact">
         <h2>Interested in Working Together?</h2>
         <div class="items">
             <div class="item">
@@ -138,7 +146,7 @@
         <a href="#">Privacy Policy</a>
         <p>© Quoc Bao</p>
     </footer>
-
+<script src="style.js"></script>
 </body>
 
 </html>
