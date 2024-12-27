@@ -597,7 +597,7 @@ footer a:hover{
     display: none; 
     justify-content: center;  
     align-items: center;  
-    transition: display 0.5s; /* Smooth transition when toggling */  
+    transition: display 1s; /* Smooth transition when toggling */  
 }  
 
 .modal-content {  
@@ -605,7 +605,7 @@ footer a:hover{
     padding: 2rem;  
     border-radius: 8px;  
     text-align: center;  
-    position: relative;  
+    position: fixed;  
     width: 80%;  
     max-width: 600px;  
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
@@ -624,25 +624,3 @@ footer a:hover{
 .close:hover {  
     color: #000; 
 }  
-
-.congratulations {  
-    position: fixed;  
-    top: 50%;  
-    left: 50%;  
-    transform: translate(-50%, -50%);  
-    background-color: rgba(0, 0, 0, 0.8);  
-    color: white;  
-    padding: 20px;  
-    border-radius: 10px;  
-    text-align: center;  
-    opacity: 0; /* Start invisible */  
-    pointer-events: none; /* Prevent interaction when invisible */  
-    transition: opacity 0.5s ease; /* Smooth transition */  
-    z-index: 1000; /* Ensure it appears above other content */  
-}  
-
-.congratulations.show {  
-    display: block; /* Set to block to allow it to occupy space */  
-    opacity: 1; /* Fade in */  
-    pointer-events: auto; /* Enable interaction */  
-} 
