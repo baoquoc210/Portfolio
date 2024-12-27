@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //Snow Flake
 const NUMBER_OF_SNOWFLAKES = 300;
-const MAX_SNOWFLAKE_SPEED = 0.2;
+const MAX_SNOWFLAKE_SPEED = 2;
 const MAX_SNOWFLAKE_SIZE = 5;
 const SNOWFLAKE_COLOUR = '#ddd';
 const snowflakes = [];
@@ -125,7 +125,7 @@ const createSnowflake = () => ({
     y: Math.random() * canvas.height,
     radius: Math.floor(Math.random() * MAX_SNOWFLAKE_SIZE) +1,      
     colour: SNOWFLAKE_COLOUR,
-    speed: Math.random() * MAX_SNOWFLAKE_SPEED,
+    speed: Math.random() * MAX_SNOWFLAKE_SPEED + 3,
     sway: Math.random() - 0.5
 });
 
@@ -156,7 +156,7 @@ const animate = () => {
     requestAnimationFrame(animate);
 }
 
-for (let i =0; i < NUMBER_OF_SNOWFLAKES; i++) {
+for (let i = 0; i < NUMBER_OF_SNOWFLAKES; i++) {
     snowflakes.push(createSnowflake());
 }
 
