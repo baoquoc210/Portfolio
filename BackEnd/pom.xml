@@ -69,9 +69,6 @@
                 <configuration>
                     <source>21</source>
                     <target>21</target>
-                    <compilerVersion>21</compilerVersion>
-                    <fork>true</fork>
-                    <executable>${JAVA_HOME}\bin\javac</executable>
                 </configuration>
             </plugin>
         </plugins>
