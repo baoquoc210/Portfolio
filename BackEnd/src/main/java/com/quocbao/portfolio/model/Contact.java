@@ -45,4 +45,8 @@ public class Contact {
     public void setCompany(String company) { 
         this.company = company;
      }
+     @Override
+    public String toString() {
+        return "Contact{id=" + id + ", name='" + name + "', email='" + email + "', company='" + company + "'}";
+    }
 }
