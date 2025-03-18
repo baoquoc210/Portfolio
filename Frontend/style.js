@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Display the modal  
             modal.style.display = 'block';  
+            modal.style.dislay = 'center';
         });  
     });  
 
@@ -101,6 +102,54 @@ document.addEventListener('DOMContentLoaded', function() {
         link.click(); 
         document.body.removeChild(link); 
     });  
+
+    const contactLinks = document.querySelectorAll('.contact-link, .contact-button');
+    const contactModal = document.getElementById('contactModal');
+    const closeContactModal = document.querySelector('.close-contact');
+    const contactForm = document.getElementById('contactForm');
+
+    contactLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            contactModal.style.display = 'flex';
+        });
+    });
+
+    // Close contact modal
+    closeContactModal.addEventListener('click', function() {
+        contactModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === contactModal) {
+            contactModal.style.display = 'none';
+        }
+    });
+
+    // Handle form submission (frontend-only)
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const hrName = document.getElementById('hrName').value;
+        const hrEmail = document.getElementById('hrEmail').value;
+        const hrCompany = document.getElementById('hrCompany').value;
+
+        console.log('Contact Request:', { name: hrName, email: hrEmail, company: hrCompany });
+        alert(`Thank you, ${hrName} ! Your request has been received. I’ll contact you at ${hrEmail} soon regarding opportunities with ${hrCompany}.`);
+        
+        contactModal.style.display = 'none';
+        contactForm.reset();
+    });
+
+    // Download button functionality
+    const workButtons = document.querySelectorAll('.work-button');
+    workButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const link = document.querySelector('.work-link');
+            link.click(); // Trigger the download
+        });
+    });
 });
 
 const NUMBER_OF_SNOWFLAKES = 300;
@@ -165,3 +214,40 @@ window.addEventListener('resize', () => {
 });
 
 animate();
+
+// Contact Modal functionality
+contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const hrName = document.getElementById('hrName').value;
+    const hrEmail = document.getElementById('hrEmail').value;
+    const hrCompany = document.getElementById('hrCompany').value;
+
+    const contactData = {
+        name: hrName,
+        email: hrEmail,
+        company: hrCompany
+    };
+
+    fetch('http://localhost:8080/api/contacts', { // Use deployed URL later
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contactData),
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        alert(`Thank you, ${hrName}! Your request has been submitted. I’ll contact you at ${hrEmail} soon regarding opportunities with ${hrCompany}.`);
+        contactModal.style.display = 'none';
+        contactForm.reset();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('There was an issue submitting your request. Please try again later.');
+    });
+});

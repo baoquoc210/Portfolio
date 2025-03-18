@@ -14,7 +14,7 @@
 
     <nav>
         <div class="logo">
-            <img src="Picture/logo.jpg" alt="Logo">
+            <img src="/Portfolio/Picture/logo.jpg" alt="Logo">
             <a href="#" id="fintechLogo">FINTECH</a>
         </div>
         <div class="nav-links">
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <img src="Picture/QB.jpg">
+        <img src="/Portfolio/Picture/QB.jpg">
 
     </div>
 
@@ -63,7 +63,7 @@
         <div class="items">
             <div class="item">
                 <div class="inner">
-                    <img src="Picture/AI Picture.webp">
+                    <img src="/Portfolio/Picture/AI Picture.webp">
                     <a href="#">Programming Languages</a>
                     <p>Proficient in programming languages essential for AI development, including Python (TensorFlow, PyTorch, Scikit-learn), R (statistical analysis and data visualization), and C++/Java for performance-intensive applications and deploying machine learning models in production.
                     </p>
@@ -71,14 +71,14 @@
             </div>
             <div class="item">
                 <div class="inner">
-                    <img src="Picture/LLM.png">
+                    <img src="/Portfolio/Picture/LLM.png">
                     <a href="#">Data Modeling & Engineering</a>
                     <p>Expert in transforming raw data into insightful information through effective data modeling and engineering. Skilled in creating conceptual data representations and optimizing data pipelines to ensure efficient storage, retrieval, and analysis of data. Committed to enabling data-driven decision-making and enhancing organizational performance.</p>
                 </div>
             </div>
             <div class="item">
                 <div class="inner">
-                    <img src="Picture/Machine-Learning.jpg">
+                    <img src="/Portfolio/Picture/Machine-Learning.jpg">
                     <a href="#">Machine Learning Models</a>
                     <p>Proficient in developing and deploying machine learning models to solve complex problems and drive data-driven insights. Experienced in various algorithms, model evaluation, and optimization techniques.</p>
                 </div>
@@ -91,7 +91,7 @@
             <p class="debug"><i class="ri-command-line"></i> Troubleshoot & Debug</p>
             <h2>Projects Showcase</h2>
             <p class="info">Welcome to my portfolio! Here, you'll find some of my notable projects that highlight my expertise in designing and developing innovative artificial intelligence solutions.</p>
-            <button id="exploreButton" data-file="Picture/CV.pdf">Explore my projects <i class="ri-arrow-right-line"></i></button>  
+            <button id="exploreButton" data-file="/Portfolio/Picture/CV.pdf">Explore my projects <i class="ri-arrow-right-line"></i></button>  
 
             <div class="items">
                 <div class="item" data-project="Real Object Detection">
@@ -130,15 +130,39 @@
         <h2>Interested in Working Together?</h2>
         <div class="items">
             <div class="item">
-                <a href="#">Make a call</a>
-                <p>Let's discuss your project ideas and we can work together</p>
-                <button>Make a call</button>
+                <a href="#" class="contact-link">Request a Consultation</a>
+                <p>Discuss your project needs and explore collaboration opportunities.</p>
+                <button class="contact-button">Schedule a Call</button>
             </div>
             <div class="item">
-                <a href="#">Explore My Work</a>
-                <p>View my portfolio to see the kind of work I do for you.</p>
-                <button><a href="Picture/AI Picture.webp" download></a>View My Work</button>
+                <a href="Picture/AI Picture.webp" class="work-link" download>Review My Portfolio</a>
+                <p>See examples of my work to understand how I can contribute to your goals.</p>
+                <button class="work-button">Download Sample</button>
             </div>
+        </div>
+    </div>
+    
+    <!-- Professional Contact Modal -->
+    <div id="contactModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-contact">×</span>
+            <h2>Request a Consultation</h2>
+            <p>Please provide your details below, and I’ll reach out to discuss how I can assist with your project.</p>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="hrName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="hrName" name="hrName" placeholder="e.g., John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="hrEmail">Email Address <span class="required">*</span></label>
+                    <input type="email" id="hrEmail" name="hrEmail" placeholder="e.g., john.doe@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="hrCompany">Company Name <span class="required">*</span></label>
+                    <input type="text" id="hrCompany" name="hrCompany" placeholder="e.g., Tech Corp" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
         </div>
     </div>
 
