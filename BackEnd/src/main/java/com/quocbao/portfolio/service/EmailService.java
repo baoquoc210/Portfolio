@@ -23,6 +23,7 @@ public class EmailService {
                 "Name: " + name + "\n" +
                 "Email: " + email + "\n" +
                 "Company: " + company + "\n" +
+                "\n" +
                 "Please follow up to schedule a consultation.");
         mailSender.send(message);
     }
