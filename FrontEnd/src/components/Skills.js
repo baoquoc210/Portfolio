@@ -19,7 +19,7 @@ function Skills() {
           <div className="expertise-item" key={index}>
             <div className="expertise-inner">
               <i className={item.icon}></i>
-              <a href="#">{item.name}</a>
+              <a href="/">{item.name}</a>
               <p>{item.description}</p>
             </div>
           </div>
