@@ -13,24 +13,37 @@ function ContactModal() {
       });
     });
   }, []);
-
+  // Adding more details when error catching (F12 --> )
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://192.168.1.100:8080/api/contacts', { // Replace with your IP
+      console.log('Sending request:', {
+        url: 'http://localhost:8080/api/contacts',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
+  
+      const response = await fetch('http://localhost:8080/api/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+  
+      console.log('Response status:', response.status, 'OK:', response.ok);
+      const responseData = await response.text();
+      console.log('Response body:', responseData);
+  
       if (response.ok) {
         alert(`Thank you, ${formData.name}! Your request has been sent.`);
         setFormData({ name: '', email: '', company: '' });
         setIsOpen(false);
       } else {
-        throw new Error('Failed to send request');
+        throw new Error(`Request failed with status: ${response.status} - ${responseData}`);
       }
     } catch (error) {
-      alert('Failed to send request. Please try again.');
+      console.error('Fetch error:', error);
+      alert(`Failed to send request: ${error.message}. Please try again.`);
     }
   };
 
@@ -53,7 +66,7 @@ function ContactModal() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="e.g., John Doe"
+              placeholder="e.g., Bao Huynh"
               required
             />
           </div>
@@ -65,7 +78,7 @@ function ContactModal() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="e.g., john.doe@company.com"
+              placeholder="e.g., FinTech@rmit.com"
               required
             />
           </div>
@@ -77,7 +90,7 @@ function ContactModal() {
               name="company"
               value={formData.company}
               onChange={handleChange}
-              placeholder="e.g., Tech Corp"
+              placeholder="e.g., FinTech Company"
               required
             />
           </div>

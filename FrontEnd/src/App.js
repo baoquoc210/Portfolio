@@ -46,14 +46,14 @@ function App() {
       <nav>
         <div className="logo">
           <img src="/Picture/logo.jpg" alt="Logo" />
-          <a href="#" id="fintechLogo">FINTECH</a>
+          <a href="/" id="fintechLogo">FINTECH</a> {/* Fixed href="#" */}
         </div>
         <div className="nav-links">
           <a href="#Main">Main</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
-          <a href="https://www.instagram.com/hh.hqb/" target="_blank">Instagram</a>
+          <a href="https://www.instagram.com/hh.hqb/" target="_blank" rel="noreferrer">Instagram</a>
         </div>
         <button id="githubButton">
           <i className="ri-github-fill"></i> My Github
