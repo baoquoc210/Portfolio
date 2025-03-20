@@ -1,0 +1,150 @@
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: display 1s;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #606060;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #000;
+}
+
+#contactModal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#contactModal .modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#contactModal h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f1f1f;
+  margin-bottom: 10px;
+}
+
+#contactModal p {
+  font-size: 14px;
+  color: #606060;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+#contactModal form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#contactModal .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#contactModal label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+#contactModal .required {
+  color: #d32f2f;
+  font-size: 12px;
+}
+
+#contactModal input {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+#contactModal input:focus {
+  border-color: #404040;
+  outline: none;
+  box-shadow: 0 0 4px rgba(64, 64, 64, 0.2);
+}
+
+#contactModal .submit-btn {
+  background: #1f1f1f;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#contactModal .submit-btn:hover {
+  background: #404040;
+}
+
+.close-contact {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: 300;
+  color: #606060;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-contact:hover {
+  color: #1f1f1f;
+}
