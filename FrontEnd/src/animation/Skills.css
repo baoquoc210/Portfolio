@@ -1,33 +1,39 @@
 /* Expertise section */
 .expertise {
   display: block;
-  background: #fafafa;
+  background: #fff;
   padding: 50px 20px;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  opacity: 0; /* Start hidden for animation */
+  opacity: 0;
+  position: relative;  
+  overflow: visible; 
 }
 
 .expertise-header {
-  text-align: center; /* Center the header content */
+  text-align: center;
   margin-bottom: 30px;
 }
 
 .expertise #expertise-label {
-  font-size: 14px;
-  color: #404040;
-  border: 1px solid #dedede;
-  padding: 6px 14px;
-  border-radius: 16px;
-  background: #fff;
   display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #404040;
+  border: 2px solid #dedede;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  opacity: 0;
 }
 
 .expertise h2 {
   font-size: 22px;
   color: #1f1f1f;
   margin-top: 12px;
+  opacity: 0;
 }
 
 .expertise-items {
@@ -44,13 +50,13 @@
   border-radius: 16px;
   background: #fff;
   box-sizing: border-box;
-  opacity: 0; /* Start hidden for load animation */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* For hover */
+  opacity: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .expertise-item:hover {
-  transform: translateY(-10px); /* Lift on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .expertise-inner {
@@ -68,11 +74,11 @@
   padding: 12px;
   background: #e0e0e0;
   border-radius: 50%;
-  transition: transform 0.3s ease; /* For hover */
+  transition: transform 0.3s ease;
 }
 
 .expertise-item:hover .expertise-inner i {
-  transform: scale(1.2); /* Icon grows on hover */
+  transform: scale(1.2);
 }
 
 .expertise-inner a {
@@ -89,7 +95,7 @@
   margin: 0;
 }
 
-/* Load Animations */
+/* Animations */
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -101,21 +107,46 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInScale {
   from {
     opacity: 0;
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .expertise.animate {
-  animation: slideUp 0.8s ease-out forwards;
+  animation: fadeInScale 0.8s ease-out forwards; /* Whole section scales in */
 }
 
 .expertise-item.animate {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: slideUp 0.6s ease-out forwards; /* Items slide up */
+}
+
+.animate-label {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-title {
+  animation: slideInRight 0.6s ease-out forwards; /* Changed from bounceIn */
 }
 
 /* Responsive */
@@ -163,5 +194,11 @@
   }
   .expertise-inner i {
     font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .expertise {
+    padding: 20px 10px;
   }
 }

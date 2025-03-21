@@ -18,29 +18,59 @@ function App() {
   const [activeSection, setActiveSection] = useState('Main');
 
   useEffect(() => {
-    // Add animation class to all sections on load
-    const sections = ['nav', '.hero', '.about', '.expertise', '.projects', '.contact', 'footer'];
-    sections.forEach(selector => {
-      const element = document.querySelector(selector);
-      if (element) element.classList.add('animate');
-    });
+    const sections = document.querySelectorAll('.hero, .about, .expertise, .projects, .contact, footer');
+    const items = document.querySelectorAll(
+      '.hero .left-section .top, .hero .left-section .bottom, .hero img, ' +
+      '.about .items .item, .expertise-items .expertise-item, ' +
+      '.projects .inner .items .item, .contact .items .item'
+    );
 
-    // Add animation to items within sections
-    const itemContainers = [
-      '.about .items .item',
-      '.expertise-items .expertise-item', // Added this
-      '.projects .inner .items .item',
-      '.contact .items .item'
-    ];
-    itemContainers.forEach(container => {
-      const items = document.querySelectorAll(container);
-      items.forEach((item, index) => {
-        item.style.animationDelay = `${index * 0.2}s`; // Staggered delay
-        item.classList.add('animate');
+    const navButton = document.querySelector('nav button#githubButton');
+    const haha = document.querySelector('#haha');
+    const aboutTitle = document.querySelector('.about h2');
+    const debug = document.querySelector('.projects .inner p.debug'); 
+    const projectsTitle = document.querySelector('.projects .inner > h2'); 
+    const projectsInfo = document.querySelector('.projects .inner p.info'); 
+    const contactTitle = document.querySelector('.contact h2');
+    const expertiseLabel = document.querySelector('#expertise-label');
+    const expertiseTitle = document.querySelector('.expertise h2');
+
+    const observerOptions = {
+      root: null, 
+      threshold: 0.3, 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
       });
+    }, observerOptions);
+
+    // Observe sections
+    sections.forEach(section => observer.observe(section));
+    items.forEach((item, index) => {
+      item.style.animationDelay = `${index * 0.2}s`; // Stagger items
+      observer.observe(item);
     });
 
-    // Button event listeners (unchanged)
+    //GitHub button in nav (load animation, not scroll)
+    if (navButton) navButton.classList.add('animate');
+    if (haha) observer.observe(haha);
+    if (aboutTitle) observer.observe(aboutTitle);
+    if (debug) observer.observe(debug); 
+    if (projectsTitle) observer.observe(projectsTitle); 
+    if (projectsInfo) observer.observe(projectsInfo); 
+    if (contactTitle) observer.observe(contactTitle);
+    if (expertiseLabel) observer.observe(expertiseLabel);
+    if (expertiseTitle) observer.observe(expertiseTitle);
+
+    const linkedinButtons = document.querySelectorAll('.linkedin-button');
+  linkedinButtons.forEach(button => {
+  button.addEventListener('click', () => window.open('https://www.linkedin.com/in/hu%E1%BB%B3nh-qu%E1%BB%91c-b%E1%BA%A3o-0328883425ha/', '_blank'));
+  });
     const hireMeButton = document.getElementById('hireMeButton');
     hireMeButton.addEventListener('click', () => window.open('https://www.linkedin.com/in/hu%E1%BB%B3nh-qu%E1%BB%91c-b%E1%BA%A3o-0328883425ha/', '_blank'));
 
@@ -67,6 +97,16 @@ function App() {
     });
 
     return () => {
+      sections.forEach(section => observer.unobserve(section));
+      items.forEach(item => observer.unobserve(item));
+      if (haha) observer.unobserve(haha);
+      if (aboutTitle) observer.unobserve(aboutTitle);
+      if (debug) observer.unobserve(debug);
+      if (projectsTitle) observer.unobserve(projectsTitle);
+      if (projectsInfo) observer.unobserve(projectsInfo);
+      if (contactTitle) observer.unobserve(contactTitle);
+      if (expertiseLabel) observer.unobserve(expertiseLabel);
+      if (expertiseTitle) observer.unobserve(expertiseTitle);
       hireMeButton.removeEventListener('click', () => {});
       githubButtons.forEach(button => button.removeEventListener('click', () => {}));
       exploreButton.removeEventListener('click', () => {});
@@ -109,6 +149,8 @@ function App() {
         </button>
       </nav>
 
+      {/* Muc Chinh cua Profile --> Ten, Anh Dai Dien */}
+
       <div className="hero" id="Main">
         <div className="left-section">
           <div className="top">
@@ -146,6 +188,7 @@ function App() {
         <img src="/Picture/QB.jpg" alt="Profile" />
       </div>
 
+      {/* Muc My SKilks */}
       <div className="about" id="about">
         <p id="haha">About My Skills</p>
         <h2>I have engaged in the development of generative artificial intelligence.</h2>
@@ -174,8 +217,9 @@ function App() {
         </div>
       </div>
 
-      <Skills /> {/* New Skills section */}
+      <Skills /> {/* Experties */}
 
+      {/* Cai Phan 4 o vuong */}
       <div className="projects" id="projects">
         <div className="inner">
           <p className="debug"><i className="ri-command-line"></i> Troubleshoot & Debug</p>
@@ -209,6 +253,7 @@ function App() {
         </div>
       </div>
 
+      {/* Cai muc contact together */}
       <div className="contact" id="contact">
         <h2>Interested in Working Together?</h2>
         <div className="items">
@@ -221,6 +266,18 @@ function App() {
             <a href="/Picture/AI Picture.webp" className="work-link" download>Review My Portfolio</a>
             <p>See examples of my work to understand my capabilities.</p>
             <button className="work-button">Download Sample</button>
+          </div>
+          <div className="item">
+            <a 
+              href="https://www.linkedin.com/in/hu%E1%BB%B3nh-qu%E1%BB%91c-b%E1%BA%A3o-0328883425ha/" 
+              className="linkedin-link" 
+              target="_blank" 
+              rel="noreferrer"
+            >
+              Connect on LinkedIn
+            </a>
+            <p>Reach out to me directly on LinkedIn for networking or inquiries.</p>
+            <button className="linkedin-button">Visit Profile</button>
           </div>
         </div>
       </div>

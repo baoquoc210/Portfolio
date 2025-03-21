@@ -12,6 +12,7 @@ function Snowflakes() {
     canvas.style.top = '0';
     canvas.style.left = '0';
     canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '10'; // Ensure snowflakes are above all content
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -60,6 +61,14 @@ function Snowflakes() {
     });
 
     animate();
+
+    // Cleanup resize listener on unmount
+    return () => {
+      window.removeEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    };
   }, []);
 
   return <canvas id="snowCanvas"></canvas>;

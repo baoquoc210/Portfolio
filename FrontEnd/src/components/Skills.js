@@ -11,8 +11,8 @@ function Skills() {
   return (
     <section className="expertise" id="expertise">
       <div className="expertise-header">
-        <p id="expertise-label">My Expertise</p>
-        <h2>Technical Proficiencies</h2>
+      <p id="expertise-label" className="animate-label">My Expertise</p>
+      <h2 className="animate-title">Technical Proficiencies</h2>
       </div>
       <div className="expertise-items">
         {expertise.map((item, index) => (
