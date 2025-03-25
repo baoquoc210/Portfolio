@@ -160,6 +160,69 @@ form button:hover {
   background: black;
 }
 
+#about-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#about-modal.visible {
+  opacity: 1;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 550px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal-content.animate {
+  transform: scale(1);
+}
+
+.dark-mode .modal-content {
+  background: #343a40;
+  color: #e9ecef;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.modal-content h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #212529;
+}
+
+.dark-mode .modal-content h2 {
+  color: #e9ecef;
+}
+
+.modal-content p {
+  font-size: 16px;
+  color: #6c757d;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.dark-mode .modal-content p {
+  color: #adb5bd;
+}
+
 /* Responsive Design for Modal */
 @media (max-width: 768px) {
   .modal-content {

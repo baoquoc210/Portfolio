@@ -1,7 +1,7 @@
 .projects {
   background: white; /* Matches your latest code */
   padding: 60px 20px;
-  width: 100%; /* Full width for desktop */
+  max-width: 100%; /* Full width for desktop */
 }
 
 .dark-mode .projects {

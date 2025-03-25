@@ -21,7 +21,9 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false); 
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false); 
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null); 
+  const [selectedAboutItem, setSelectedAboutItem] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -95,7 +97,29 @@ function App() {
   const openContactModal = () => setIsContactModalOpen(true);
   const closeContactModal = () => setIsContactModalOpen(false);
   const closeProjectModal = () => setIsProjectModalOpen(false);
+  const openAboutModal = (item) => {
+    setSelectedAboutItem(item);
+    setIsAboutModalOpen(true);
+  };
+  const closeAboutModal = () => setIsAboutModalOpen(false);
 
+  const aboutItems = [
+    {
+      title: "Programming Expertise",
+      image: "/Picture/AI Picture.webp",
+      description: "I bring extensive proficiency in programming languages critical to artificial intelligence and machine learning development. My expertise spans Python—leveraging frameworks like TensorFlow, PyTorch, and Scikit-learn for cutting-edge AI solutions—alongside R for advanced statistical analysis and data visualization. Additionally, I am skilled in C++ and Java, enabling me to optimize performance-intensive applications and deploy robust, scalable machine learning models in production environments. This versatile skill set empowers me to craft high-quality, efficient systems tailored to diverse technical challenges.",
+    },
+    {
+      title: "Data Engineering & Modeling",
+      image: "/Picture/LLM.png",
+      description: "With a deep specialization in data engineering, I excel at designing and implementing sophisticated data pipelines that transform raw, unstructured data into actionable insights. My experience includes constructing conceptual and logical data models, optimizing storage and retrieval systems, and ensuring seamless integration with AI frameworks. I am adept at leveraging tools like SQL, Apache Spark, and cloud platforms (e.g., AWS, GCP) to enhance data accessibility and scalability. This expertise drives data-driven decision-making, delivering measurable value to organizations by unlocking the full potential of their data assets.",
+    },
+    {
+      title: "Machine Learning Solutions",
+      image: "/Picture/Machine-Learning.jpg",
+      description: "I possess a proven track record in developing and deploying machine learning models that address complex, real-world problems with precision and efficiency. My capabilities encompass a wide range of algorithms—from supervised and unsupervised learning to deep learning techniques—coupled with rigorous model evaluation and hyperparameter optimization. I have successfully delivered solutions such as real-time object detection, natural language processing systems, and predictive analytics tools, utilizing frameworks like YOLO, BERT, and custom neural networks. This expertise enables me to bridge the gap between theoretical research and practical, impactful applications.",
+    },
+  ];
   return (
     <div className="app">
       <Snowflakes />
@@ -195,30 +219,36 @@ function App() {
           </h2>
         </div>
         <div className="about-items">
-          <div className="item animate-target">
-            <img src="/Picture/AI Picture.webp" alt="Programming Expertise" />
-            <h3>Programming Expertise</h3>
-            <p>
-              I bring extensive proficiency in programming languages critical to artificial intelligence and machine learning development. My expertise spans Python—leveraging frameworks like TensorFlow, PyTorch, and Scikit-learn for cutting-edge AI solutions—alongside R for advanced statistical analysis and data visualization. Additionally, I am skilled in C++ and Java, enabling me to optimize performance-intensive applications and deploy robust, scalable machine learning models in production environments. This versatile skill set empowers me to craft high-quality, efficient systems tailored to diverse technical challenges.
-            </p>
-          </div>
-          <div className="item animate-target">
-            <img src="/Picture/LLM.png" alt="Data Engineering" />
-            <h3>Data Engineering & Modeling</h3>
-            <p>
-              With a deep specialization in data engineering, I excel at designing and implementing sophisticated data pipelines that transform raw, unstructured data into actionable insights. My experience includes constructing conceptual and logical data models, optimizing storage and retrieval systems, and ensuring seamless integration with AI frameworks. I am adept at leveraging tools like SQL, Apache Spark, and cloud platforms (e.g., AWS, GCP) to enhance data accessibility and scalability. This expertise drives data-driven decision-making, delivering measurable value to organizations by unlocking the full potential of their data assets.
-            </p>
-          </div>
-          <div className="item animate-target">
-            <img src="/Picture/Machine-Learning.jpg" alt="Machine Learning Solutions" />
-            <h3>Machine Learning Solutions</h3>
-            <p>
-              I possess a proven track record in developing and deploying machine learning models that address complex, real-world problems with precision and efficiency. My capabilities encompass a wide range of algorithms—from supervised and unsupervised learning to deep learning techniques—coupled with rigorous model evaluation and hyperparameter optimization. I have successfully delivered solutions such as real-time object detection, natural language processing systems, and predictive analytics tools, utilizing frameworks like YOLO, BERT, and custom neural networks. This expertise enables me to bridge the gap between theoretical research and practical, impactful applications.
-            </p>
-          </div>
+        {aboutItems.map((item, idx) => (
+            <div
+              className="item animate-target"
+              key={idx}
+              onClick={() => openAboutModal(item)}
+            >
+              <img src={item.image} alt={item.title} />
+              <h3>{item.title}</h3>
+            </div>
+          ))}
         </div>
       </section>
-
+      
+      {/* About Modal */}
+      {isAboutModalOpen && selectedAboutItem && (
+        <div
+          id="about-modal"
+          className={isAboutModalOpen ? 'visible' : ''}
+          style={{ display: isAboutModalOpen ? 'flex' : 'none' }}
+        >
+          <div className={`modal-content ${isAboutModalOpen ? 'animate' : ''}`}>
+            <span className="close" onClick={closeAboutModal}>
+              ×
+            </span>
+            <h2>{selectedAboutItem.title}</h2>
+            <p>{selectedAboutItem.description}</p>
+          </div>
+        </div>
+      )}
+      
       <Skills />
 
       <section className="projects" id="projects">
