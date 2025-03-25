@@ -1,28 +1,21 @@
 footer {
-  background: #1f1f1f;
-  border-radius: 24px 24px 0 0;
-  padding: 30px;
+  background: #212529;
+  color: #adb5bd;
+  padding: 20px;
+  text-align: center;
   display: flex;
-  align-items: center;
   justify-content: center;
   gap: 20px;
 }
 
-footer p,
-footer a {
-  font-size: 13px;
-  color: #606060;
-  transition: all 0.3s ease;
+.dark-mode footer {
+  background: #343a40;
+}
+
+footer a, footer p {
+  font-size: 14px;
 }
 
 footer a:hover {
-  color: #fff;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  footer a,
-  footer p {
-    font-size: 11px;
-  }
+  color: #e9ecef;
 }

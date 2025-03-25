@@ -1,23 +1,37 @@
-/* Global styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
-a {
-  text-decoration: none;
+body {
+  background: #f8f9fa;
+  color: #212529;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode {
+  background: #212529;
+  color: #e9ecef;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
 }
 
 button {
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-img {
-  object-fit: cover;
-}
-
-h2 {
-  font-weight: 400;
+a {
+  text-decoration: none;
+  color: inherit;
 }

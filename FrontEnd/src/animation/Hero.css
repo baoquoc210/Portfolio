@@ -1,288 +1,203 @@
-/* Hero section */
 .hero {
-  margin-top: 80px;
-  height: calc(100vh - 80px);
-  padding: 0 20px;
+  min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 30px;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0;
-}
-
-.hero .left-section {
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   gap: 40px;
-  width: 50%;
-  min-width: 300px;
-  text-align: center;
+  padding: 80px 20px 60px; /* Adjusted padding for better mobile spacing */
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Ensures wrapping on smaller screens */
 }
 
-.hero > img {
-  max-width: 520px;
-  width: 44%;
-  border-radius: 26px;
-  border: 5px solid black;
-  opacity: 0;
-  min-width: 300px;
+.hero-content {
+  flex: 1;
+  min-width: 300px; /* Prevents content from shrinking too much */
 }
 
-.hero .left-section .top {
-  opacity: 0;
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #212529;
 }
 
-.hero .left-section .top h2 {
-  font-size: 44px;
-  margin-bottom: 24px;
+.dark-mode .hero h1 {
+  color: #e9ecef;
 }
 
-.hero .left-section .top p {
-  color: #606060;
+.hero p {
   font-size: 18px;
-  margin-bottom: 24px;
+  line-height: 1.6;
+  color: #6c757d;
+  margin-bottom: 30px;
+  max-width: 600px; /* Limits text width for readability */
 }
 
-.hero .left-section .top .buttons {
+.dark-mode .hero p {
+  color: #adb5bd;
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 300px; /* Ensures image doesn’t collapse too small */
   display: flex;
-  gap: 8px;
   justify-content: center;
 }
 
-.hero .left-section .top .buttons button {
-  font-size: 16px;
-  border: none;
-  padding: 5px 20px;
-  background: #fff;
-  border: 1px solid #dedede;
+.hero-image img {
+  width: 100%;
+  max-width: 450px; /* Caps image size for balance */
+  height: auto; /* Maintains aspect ratio */
   border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Ensures image fills container properly */
+}
+
+.dark-mode .hero-image img {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; /* Allows buttons to stack on small screens */
+  justify-content: flex-start;
+}
+
+.social-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 5px;
-  font-weight: 500;
-  transition: transform 0.3s ease;
-}
-
-.hero .left-section .top .buttons button:hover {
-  transform: scale(1.05);
-}
-
-.hero .left-section .top .buttons button i {
-  font-size: 26px;
-}
-
-.hero .left-section .top .buttons button.doc {
-  background: #000;
-  color: #fff;
-}
-
-.hero .left-section .bottom {
-  opacity: 0;
-}
-
-.hero .left-section .bottom p {
-  font-size: 14px;
-  color: #606060;
-  margin-bottom: 10px;
-}
-
-.hero .left-section .bottom .icons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 20px;
+  gap: 8px;
+  transition: all 0.3s ease;
   cursor: pointer;
-  justify-content: center;
 }
 
-.hero .left-section .bottom .icons a {
-  transition: transform 0.3s ease;
+.social-button.primary {
+  background: #0077b5; /* LinkedIn blue */
+  color: #ffffff;
 }
 
-.hero .left-section .bottom .icons a:hover {
-  transform: scale(1.2);
+.social-button.primary:hover {
+  background: #005f8f;
+  transform: translateY(-2px);
 }
 
-/* Animations */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.social-button.secondary {
+  background: #24292e; /* GitHub dark gray */
+  color: #ffffff;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.social-button.secondary:hover {
+  background: #1b1f23;
+  transform: translateY(-2px);
 }
 
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.dark-mode .social-button.primary {
+  background: #66b0ff; /* Lighter blue for dark mode */
 }
 
-.hero.animate {
-  animation: slideUp 0.8s ease-out forwards;
+.dark-mode .social-button.primary:hover {
+  background: #4d9bff;
 }
 
-.hero .left-section .top.animate {
-  animation: slideInLeft 0.6s ease-out forwards;
+.dark-mode .social-button.secondary {
+  background: #495057;
 }
 
-.hero .left-section .bottom.animate {
-  animation: slideInRight 0.6s ease-out forwards; /* Changed to slide from right */
+.dark-mode .social-button.secondary:hover {
+  background: #6c757d;
 }
 
-.hero img.animate {
-  animation: fadeInScale 0.6s ease-out forwards;
+.social-button i {
+  font-size: 20px;
 }
 
-/* New keyframe for right slide */
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
-@media screen and (max-width: 1280px) {
+.animate-target.animate {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .hero {
-    padding: 0 40px;
-  }
-  .hero .left-section {
-    width: 50%;
-  }
-  .hero > img {
-    max-width: 400px;
-  }
-  .hero .left-section .top h2 {
-    font-size: 36px;
-  }
-}
-
-@media screen and (max-width: 1024px) { /* iPad Pro tweak */
-  .hero {
-    padding: 0 30px;
-    margin-top: 100px;
-    height: auto; /* Let it shrink naturally */
-    gap: 20px; /* Reduce spacing */
-  }
-  .hero .left-section {
-    width: 100%;
-    max-width: 500px; /* Slightly smaller than 600px */
-    gap: 30px; /* Tighter gap */
-  }
-  .hero > img {
-    width: 100%;
-    max-width: 320px; /* Smaller image */
-  }
-  .hero .left-section .top h2 {
-    font-size: 32px; /* Less large */
-    margin-bottom: 16px;
-  }
-  .hero .left-section .top p {
-    font-size: 16px;
-    margin-bottom: 16px;
-  }
-  .hero .left-section .top .buttons button {
-    font-size: 14px;
-    padding: 4px 16px;
-  }
-  .hero .left-section .top .buttons button i {
-    font-size: 22px;
-  }
-  .hero .left-section .bottom .icons {
-    font-size: 18px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .hero {
-    flex-direction: column;
-    padding: 0 30px;
-    height: auto;
-    margin-top: 120px;
-  }
-  .hero .left-section {
-    width: 100%;
-    max-width: 600px;
-  }
-  .hero > img {
-    width: 100%;
-    max-width: 360px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero {
-    padding: 0 20px;
-  }
-  .hero > img {
-    width: 100%;
-    max-width: 300px;
-  }
-  .hero .left-section .top h2 {
-    font-size: 28px;
-  }
-  .hero .left-section .top p {
-    font-size: 16px;
-  }
-  .hero .left-section .top .buttons button {
-    font-size: 14px;
-    padding: 4px 16px;
-  }
-}
-
-@media screen and (max-width: 430px) {
-  .hero {
-    padding: 0 15px;
-    margin-top: 100px;
-  }
-  .hero .left-section {
-    width: 100%;
     gap: 30px;
   }
-  .hero > img {
-    width: 100%;
-    max-width: 300px;
+  .hero h1 {
+    font-size: 40px;
   }
-  .hero .left-section .top h2 {
-    font-size: 28px;
-  }
-  .hero .left-section .top p {
+  .hero p {
     font-size: 16px;
   }
-  .hero .left-section .top .buttons button {
-    font-size: 14px;
-    padding: 4px 16px;
+  .hero-image img {
+    max-width: 400px;
   }
-  .hero .left-section .bottom .icons {
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 100px 15px 40px; /* Adjusted for mobile top spacing due to fixed nav */
+    text-align: center; /* Centers text on mobile */
+  }
+  .hero-content {
+    min-width: 100%; /* Full width on mobile */
+  }
+  .hero h1 {
+    font-size: 36px;
+  }
+  .hero p {
+    font-size: 15px;
+    max-width: 100%; /* Full width for readability */
+  }
+  .hero-image {
+    min-width: 100%;
+  }
+  .hero-image img {
+    max-width: 320px; /* Optimized for iPhone 6/7/8/14 */
+  }
+  .buttons {
+    justify-content: center; /* Centers buttons on mobile */
+  }
+}
+
+@media (max-width: 430px) { /* iPhone 14 and similar */
+  .hero {
+    padding: 90px 10px 30px;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .hero-image img {
+    max-width: 280px; /* Prevents image from looking "weird" on small screens */
+  }
+  .social-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .social-button i {
     font-size: 18px;
+  }
+}
+
+@media (max-width: 375px) { /* iPhone 6/7/8 */
+  .hero h1 {
+    font-size: 28px;
+  }
+  .hero-image img {
+    max-width: 260px;
   }
 }

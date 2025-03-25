@@ -1,279 +1,270 @@
-/* Projects section */
 .projects {
-  padding: 0 24px;
-  background: #f5f5f5;
-  opacity: 0;
+  background: white; /* Matches your latest code */
+  padding: 60px 20px;
+  width: 100%; /* Full width for desktop */
 }
 
-.projects .inner {
-  background: #1f1f1f;
-  color: #fff;
-  padding: 70px;
-  border-radius: 24px;
-  width: 100%; 
-  margin: 0 auto;
+.dark-mode .projects {
+  background: #1f1f1f; /* Slightly lighter black for dark mode */
 }
 
-.projects .inner p.debug {
-  display: inline-block;
-  font-size: 14px;
-  margin-bottom: 12px;
-  color: #d8d8d8;
-  border: 1px solid #484848;
-  padding: 0 2px; /* Ultra-tight padding */
-  border-radius: 8px; /* Smaller radius for snugness */
-  opacity: 0;
-}
-
-.projects .inner p.debug i {
-  font-size: 18px;
-  margin-right: 2px; /* Tighter icon spacing */
-}
-
-.projects .inner > button i {
-  font-size: 18px;
-}
-
-.projects .inner > h2 {
-  display: block !important;
-  font-size: 38px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  opacity: 0;
-}
-
-.projects .inner p.info {
-  display: block !important;
-  font-size: 18px;
-  color: #dedede;
-  margin-bottom: 24px;
-  opacity: 0;
-}
-
-.projects .inner > button {
-  font-size: 16px;
-  border: none;
-  padding: 10px 20px;
-  background: #fff;
-  border: 1px solid #dedede;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  font-weight: 500;
-  transition: transform 0.3s ease, background 0.3s ease;
-  margin-bottom: 40px;
-  cursor: pointer;
-}
-
-.projects .inner > button:hover {
-  transform: scale(1.05);
-  background: #f5f5f5;
-}
-
-.projects .inner .items {
-  display: flex;
-  gap: 20px;
-}
-
-.projects .inner .items .item {
-  border: 1px solid #484848;
+.projects-inner {
+  background: #212529;
+  color: #e9ecef;
+  padding: 60px;
   border-radius: 16px;
-  padding: 32px 24px;
-  height: 250px;
-  width: 24%;
-  background: #262626;
-  opacity: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 1200px; /* Constrains content for desktop */
+  margin: 0 auto; /* Centers the inner content */
 }
 
-.projects .inner .items .item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.dark-mode .projects-inner {
+  background: #343a40;
 }
 
-.projects .inner .items .item i {
-  font-size: 38px;
-  border: 1px solid #606060;
-  border-radius: 10px;
-  padding: 10px;
-  background: #303030;
+.projects-header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.projects .inner .items .item a {
+.projects-inner .label {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ced4da;
+  background: #343a40;
+  padding: 8px 16px;
+  border-radius: 20px;
+  opacity: 0; 
+}
+
+.dark-mode .projects-inner .label {
+  background: #495057;
+}
+
+.projects-inner h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 15px 0 20px;
+}
+
+.projects-inner .info {
+  font-size: 18px;
+  color: #adb5bd;
+  max-width: 800px;
+  margin: 0 auto 30px; 
+}
+
+.projects-inner .cv-button {
   display: block;
-  margin: 24px 0 14px;
-  color: #fff;
+  margin: 0 auto 40px; 
+  padding: 12px 24px;
+  background: #ffffff;
+  color: #212529;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.projects-inner .cv-button:hover {
+  background: #e9ecef;
+  transform: translateY(-2px); 
+}
+
+.dark-mode .projects-inner .cv-button {
+  background: #e9ecef;
+}
+
+.dark-mode .projects-inner .cv-button:hover {
+  background: #ced4da;
+}
+
+.project-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+.item {
+  background: #343a40;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures consistent spacing */
+  min-height: 180px; /* Fixed minimum height for uniformity */
+  height: 100%; /* Ensures full height usage within grid cell */
+}
+
+.dark-mode .item {
+  background: #495057;
+}
+
+.item:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.dark-mode .item:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.item i {
+  font-size: 36px;
+  color: #e9ecef;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease; 
+}
+
+.item:hover i {
+  transform: scale(1.1); 
+}
+
+.item h3 {
   font-size: 20px;
   font-weight: 600;
+  margin-bottom: 10px;
+  flex-grow: 0; /* Prevents stretching */
 }
 
-.projects .inner .items .item p {
-  color: #a1a1a1;
+.item p {
   font-size: 16px;
-  line-height: 24px;
+  color: #adb5bd;
+  flex-grow: 1; /* Allows p to take remaining space */
+  margin-bottom: 0; /* Prevents extra spacing */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limits to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ellipsis for overflow */
 }
 
 /* Animations */
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Apply animations */
-.projects.animate {
-  animation: fadeInScale 0.8s ease-out forwards;
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-.projects .inner p.debug.animate {
-  animation: slideInLeft 0.6s ease-out forwards;
-}
-
-.projects .inner > h2.animate {
-  animation: slideInRight 0.6s ease-out forwards;
-}
-
-.projects .inner p.info.animate {
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-.projects .inner .items .item.animate {
+.animate-target.animate {
   animation: slideUp 0.6s ease-out forwards;
 }
 
-/* Responsive */
-@media screen and (max-width: 1280px) {
-  .projects .inner > button {
-    font-size: 14px;
-    padding: 8px 14px;
+.label.animate {
+  animation: pulse 0.8s ease-out forwards; /* Professional pulse for "Portfolio" */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) { /* Larger tablets */
+  .project-items {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
   }
-  .projects .inner p.info {
-    font-size: 15px;
-  }
-  .projects .inner .items {
-    flex-wrap: wrap;
-  }
-  .projects .inner .items .item {
-    width: 48%;
-    height: 220px;
+  .item {
+    min-height: 200px; /* Slightly taller for 2-column layout */
   }
 }
 
-@media screen and (max-width: 992px) {
-  .projects .inner .items .item {
-    height: 250px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .projects .inner {
-    padding: 50px 40px;
-  }
-  .projects .inner > h2 {
-    font-size: 24px;
-  }
-  .projects .inner p.info {
-    font-size: 13px;
-  }
-  .projects .inner > button {
-    width: 100%;
-  }
-  .projects .inner .items .item {
-    width: 100%;
-    height: 170px;
-  }
-  .projects .inner .items .item i {
-    font-size: 28px;
-  }
-  .projects .inner .items .item a {
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 16px;
-  }
-  .projects .inner .items .item p {
-    margin-top: 10px;
-    margin-bottom: 12px;
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 430px) {
+@media (max-width: 768px) { /* Mobile */
   .projects {
-    padding: 0 15px;
+    padding: 40px 15px;
   }
-  .projects .inner {
+  .projects-inner {
     padding: 40px 20px;
   }
-  .projects .inner p.debug {
-    font-size: 12px;
-    padding: 2px 4px;
+  .project-items {
+    grid-template-columns: 1fr;
+    max-width: 500px; /* Centers and constrains for mobile */
   }
-  .projects .inner > h2 {
+  .item {
+    min-height: 220px; /* Consistent height for single column */
+  }
+  .projects-inner h2 {
+    font-size: 26px;
+  }
+  .projects-inner .info {
+    font-size: 16px;
+  }
+  .projects-inner .cv-button {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+  .label {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 430px) { /* iPhone 14 */
+  .projects {
+    padding: 30px 10px;
+  }
+  .projects-inner h2 {
+    font-size: 22px;
+  }
+  .projects-inner .info {
+    font-size: 15px;
+  }
+  .item {
+    min-height: 220px; /* Increased to ensure uniformity */
+    padding: 15px; /* Slightly reduced padding for better fit */
+  }
+  .item i {
+    font-size: 32px;
+  }
+  .item h3 {
+    font-size: 18px;
+    margin-bottom: 8px; /* Adjusted for spacing */
+  }
+  .item p {
+    font-size: 15px;
+    -webkit-line-clamp: 3; /* Allows 3 lines for better fit */
+  }
+}
+
+@media (max-width: 375px) { /* iPhone 6/7/8 */
+  .projects-inner h2 {
     font-size: 20px;
   }
-  .projects .inner p.info {
-    font-size: 12px;
-  }
-  .projects .inner > button {
-    font-size: 12px;
-    padding: 8px 12px;
-  }
-  .projects .inner .items .item {
-    height: 200px;
-  }
-  .projects .inner .items .item a {
+  .projects-inner .info {
     font-size: 14px;
   }
-  .projects .inner .items .item p {
-    font-size: 12px;
+  .item {
+    min-height: 220px; /* Consistent height */
+    padding: 15px;
+  }
+  .item i {
+    font-size: 30px;
+  }
+  .item h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .item p {
+    font-size: 14px;
+    -webkit-line-clamp: 3; /* Consistent with iPhone 14 */
+  }
+}
+
+/* iPad-specific adjustments */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .project-items {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+  }
+  .item {
+    min-height: 200px; /* Matches tablet layout */
   }
 }

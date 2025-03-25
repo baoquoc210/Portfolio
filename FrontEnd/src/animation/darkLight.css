@@ -1,0 +1,90 @@
+/* Light mode (default) */
+body {
+    background: #fff;
+    color: #1f1f1f;
+    transition: all 0.3s ease;
+  }
+  
+  /* Dark mode */
+  body.dark-mode {
+    background: #1f1f1f;
+    color: #dedede;
+  }
+  
+  /* Adjust nav for dark mode */
+  body.dark-mode nav {
+    background: #2a2a2a;
+    border-color: #404040;
+  }
+  
+  body.dark-mode nav .logo a {
+    color: #fff;
+  }
+  
+  body.dark-mode nav .nav-links a {
+    color: #a1a1a1;
+  }
+  
+  body.dark-mode nav .nav-links a.active {
+    color: #fff;
+    background: #404040;
+    border-bottom-color: #fff;
+  }
+  
+  body.dark-mode nav .nav-links a:hover:not(.active) {
+    color: #dedede;
+  }
+  
+  body.dark-mode nav .hamburger {
+    color: #dedede;
+  }
+  
+  body.dark-mode nav .theme-toggle {
+    background: #dedede;
+    color: #1f1f1f;
+  }
+  
+  body.dark-mode nav .theme-toggle:hover {
+    background: #fff;
+  }
+  
+  /* Adjust other sections as needed */
+  body.dark-mode .hero .left-section .top p,
+  body.dark-mode .hero .left-section .bottom p {
+    color: #a1a1a1;
+  }
+  
+  body.dark-mode .about {
+    background: #1f1f1f;
+  }
+  
+  body.dark-mode .about > p#haha {
+    background: #404040;
+    color: #dedede;
+    border-color: #606060;
+  }
+  
+  body.dark-mode .about > h2 {
+    color: #fff;
+  }
+  
+  body.dark-mode .contact {
+    background: #1f1f1f
+  }
+  
+  body.dark-mode .contact h2 {
+    color: #fff;
+  }
+  
+  body.dark-mode footer {
+    background: #1f1f1f;
+  }
+  
+  body.dark-mode footer a,
+  body.dark-mode footer p {
+    color: #a1a1a1;
+  }
+  
+  body.dark-mode footer a:hover {
+    color: #fff;
+  }

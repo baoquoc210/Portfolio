@@ -1,204 +1,189 @@
-/* Expertise section */
-.expertise {
-  display: block;
-  background: #fff;
-  padding: 50px 20px;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0;
-  position: relative;  
-  overflow: visible; 
+.skills {
+  background: white;
+  padding: 60px 20px;
+  max-width: 100%; 
 }
 
-.expertise-header {
+.dark-mode .skills {
+  background: #1f1f1f;
+}
+
+.skills-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-.expertise #expertise-label {
+.label {
   display: inline-block;
   font-size: 16px;
-  font-weight: 600;
-  color: #404040;
-  border: 2px solid #dedede;
+  font-weight: 700;
+  color: white;
+  background: #e9ecef;
   padding: 8px 16px;
   border-radius: 20px;
-  background: #f5f5f5;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  opacity: 0;
+  opacity: 0; 
 }
 
-.expertise h2 {
-  font-size: 22px;
-  color: #1f1f1f;
-  margin-top: 12px;
-  opacity: 0;
+.dark-mode .label {
+  color: #ced4da;
+  background: #1f1f1f;
 }
 
-.expertise-items {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-.expertise-item {
-  width: 26%;
-  border: 2px solid #404040;
-  border-radius: 16px;
-  background: #fff;
-  box-sizing: border-box;
-  opacity: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.expertise-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.expertise-inner {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  min-height: 300px;
-}
-
-.expertise-inner i {
-  font-size: 48px;
-  color: #1f1f1f;
-  padding: 12px;
-  background: #e0e0e0;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-.expertise-item:hover .expertise-inner i {
-  transform: scale(1.2);
-}
-
-.expertise-inner a {
-  font-size: 18px;
-  color: #000;
-  margin: 16px 0;
-  display: block;
+.skills h2 {
+  font-size: 32px;
   font-weight: 600;
+  color: #212529;
+  margin-top: 15px;
 }
 
-.expertise-inner p {
-  color: #606060;
-  font-size: 15px;
-  margin: 0;
+.dark-mode .skills h2 {
+  color: #e9ecef;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 30px;
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+.skill-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.dark-mode .skill-card {
+  background: #343a40;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+}
+
+.dark-mode .skill-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skill-card i {
+  font-size: 40px;
+  color: #212529;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease; 
+}
+
+.dark-mode .skill-card i {
+  color: #e9ecef;
+}
+
+.skill-card:hover i {
+  transform: scale(1.1); 
+}
+
+.skill-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #212529;
+}
+
+.dark-mode .skill-card h3 {
+  color: #e9ecef;
+}
+
+.skill-card p {
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.dark-mode .skill-card p {
+  color: #adb5bd;
 }
 
 /* Animations */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-target.animate {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.label.animate {
+  animation: pulse 0.8s ease-out forwards; 
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) { 
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    max-width: 800px;
   }
 }
 
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
+@media (max-width: 768px) { /* Mobile */
+  .skills {
+    padding: 40px 15px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  .skills-grid {
+    grid-template-columns: 1fr; /* Single column for mobile */
+    max-width: 500px; /* Centers and constrains for mobile */
   }
-}
-
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
+  .skills h2 {
+    font-size: 26px;
   }
-  60% {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  .label {
+    font-size: 14px;
+    padding: 6px 12px;
   }
 }
 
-.expertise.animate {
-  animation: fadeInScale 0.8s ease-out forwards; /* Whole section scales in */
+@media (max-width: 430px) { /* iPhone 14 */
+  .skills {
+    padding: 30px 10px;
+  }
+  .skills h2 {
+    font-size: 22px;
+  }
+  .skill-card {
+    padding: 20px;
+  }
+  .skill-card p {
+    font-size: 15px;
+  }
 }
 
-.expertise-item.animate {
-  animation: slideUp 0.6s ease-out forwards; /* Items slide up */
-}
-
-.animate-label {
-  animation: slideInLeft 0.6s ease-out forwards;
-}
-
-.animate-title {
-  animation: slideInRight 0.6s ease-out forwards; /* Changed from bounceIn */
-}
-
-/* Responsive */
-@media screen and (max-width: 1280px) {
-  .expertise {
-    padding: 40px 20px;
+@media (max-width: 375px) { /* iPhone 6/7/8 */
+  .skills h2 {
+    font-size: 20px;
   }
-  .expertise-item {
-    width: 30%;
+  .skill-card i {
+    font-size: 36px;
   }
-  .expertise-inner {
-    min-height: 280px;
+  .skill-card h3 {
+    font-size: 18px;
   }
-  .expertise-inner a {
-    font-size: 16px;
-  }
-  .expertise-inner p {
+  .skill-card p {
     font-size: 14px;
   }
 }
 
-@media screen and (max-width: 992px) {
-  .expertise-item {
-    width: 45%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .expertise {
-    padding: 30px 15px;
-  }
-  .expertise h2 {
-    font-size: 18px;
-  }
-  .expertise-items {
-    gap: 16px;
-  }
-  .expertise-item {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  .expertise-inner {
-    min-height: 250px;
-  }
-  .expertise-inner i {
-    font-size: 36px;
-  }
-}
-
-@media screen and (max-width: 430px) {
-  .expertise {
-    padding: 20px 10px;
+/* iPad-specific adjustments */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for iPad portrait */
+    max-width: 700px;
   }
 }
